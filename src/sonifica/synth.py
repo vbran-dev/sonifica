@@ -148,7 +148,7 @@ def render_spectral(
     sr: int = SAMPLE_RATE,
 ) -> np.ndarray:
     """The heatmap used directly as a spectrogram (additive synthesis).
-    
+
     Each row is a sine wave at a fixed frequency, each column represents
     a point in time, and the cell value determines the amplitude.
     All frequencies in a column are heard simultaneously.
@@ -200,7 +200,7 @@ def render_hilbert(
     markers: bool = True,
 ) -> np.ndarray:
     """The entire heatmap as a single melodic line following the Hilbert curve.
-    
+
     The total duration is fixed, regardless of the matrix dimensions: each
     instant corresponds to a point in the unit square. The value determines
     the pitch (and volume), while the horizontal position determines the

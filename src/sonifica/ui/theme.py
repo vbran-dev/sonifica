@@ -17,7 +17,7 @@ BORDER = "#26202e"
 TEXT = "#f1ecf7"
 MUTED = "#a59cb2"
 FAINT = "#6f6679"
-ACCENT = "#f17fa8"  
+ACCENT = "#f17fa8"
 ACCENT_HOVER = "#f59cbd"
 ACCENT_TEXT = "#1b0f2e"
 LILAC = "#c9a7ff"  # focus from keyboard
@@ -158,7 +158,7 @@ def matplotlib_dark(fig) -> None:
         ax.tick_params(colors=MUTED, labelsize=8)
         ax.xaxis.label.set_color(MUTED)
         ax.yaxis.label.set_color(MUTED)
-        for title in (ax.title, ax._left_title, ax._right_title):  
+        for title in (ax.title, ax._left_title, ax._right_title):
             title.set_color(TEXT)
             title.set_fontsize(10)
         for spine in ax.spines.values():

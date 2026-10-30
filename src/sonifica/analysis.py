@@ -29,9 +29,10 @@ from sonifica.synth import (
     step_samples,
 )
 
+
 def to_mono(audio: np.ndarray) -> np.ndarray:
     return audio.mean(axis=1) if audio.ndim == 2 else audio
-    
+
 def spectrogram(audio: np.ndarray, sr: int = SAMPLE_RATE, n_fft: int = 2048, max_frames: int = 4000):
     """Returns frequencies, times and dB values normalized to 0 and clipped at -80 dB."""
     mono = to_mono(audio).astype(float)
@@ -178,7 +179,7 @@ def reconstruct_hilbert(
         freqs[k] = np.median(inst[lo:hi])
         levels[k] = np.median(env[lo:hi])
     values = np.asarray(mapping.value_from_frequency(np.clip(freqs, 1.0, None)), dtype=float)
-    values[levels < 0.08] = np.nan  
+    values[levels < 0.08] = np.nan
     return hilbert.to_grid(values, shape, path)
 
 

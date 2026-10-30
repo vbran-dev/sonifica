@@ -44,7 +44,7 @@ class Grid:
         if self.labeled:
             return f"{self.row_labels[r]}, {self.col_labels[c]}"
         return f"{tr('row')} {r + 1}, {tr('col')} {c + 1}"
-        
+
     def normalized(self) -> np.ndarray:
         span = self.vmax - self.vmin
         if span == 0:
@@ -59,7 +59,7 @@ class Grid:
 
     def argmax(self) -> tuple[int, int]:
         return np.unravel_index(np.nanargmax(self.values), self.shape)  # type: ignore[return-value]
-        
+
     @property
     def shape(self) -> tuple[int, int]:
         return self.values.shape  # type: ignore[return-value]
@@ -76,7 +76,7 @@ class Grid:
     def n_missing(self) -> int:
         return int(np.isnan(self.values).sum())
 
-    
+
 
 
 def _parse_cell(text: str) -> float | None:
@@ -185,7 +185,7 @@ RESAMPLE_METHODS = ("area", "nearest")
 
 
 def _area_weights(old: int, new: int) -> np.ndarray:
-    """Fraction of each old cell (columns) that falls within each new cell (rows)."""   
+    """Fraction of each old cell (columns) that falls within each new cell (rows)."""
     o = np.arange(old + 1) / old
     n = np.arange(new + 1) / new
     lo = np.maximum(n[:-1, None], o[None, :-1])

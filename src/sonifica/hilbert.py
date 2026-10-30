@@ -44,7 +44,7 @@ def d2xy(order: int, d: np.ndarray | int) -> tuple[np.ndarray, np.ndarray]:
     while s < side:
         rx = 1 & (t // 2)
         ry = 1 & (t ^ rx)
-        # quadrant rotation        
+        # quadrant rotation
         flip = (ry == 0) & (rx == 1)
         x = np.where(flip, s - 1 - x, x)
         y = np.where(flip, s - 1 - y, y)
@@ -85,7 +85,7 @@ def quadrant_name(q: int) -> str:
 
 
 def path_for(shape: tuple[int, int], order: int | None = None) -> HilbertPath:
-    """Hilbert path across the matrix `shape`, mapped onto the unit square."""   
+    """Hilbert path across the matrix `shape`, mapped onto the unit square."""
     n_rows, n_cols = shape
     order = order_for(shape) if order is None else order
     side = 1 << order

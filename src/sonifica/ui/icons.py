@@ -9,7 +9,7 @@ from PySide6.QtGui import QColor, QIcon, QPainter, QPainterPath, QPen, QPixmap
 from sonifica import palettes
 from sonifica.ui import theme
 
-SIZE = 64 
+SIZE = 64
 
 
 def _canvas() -> tuple[QPixmap, QPainter]:

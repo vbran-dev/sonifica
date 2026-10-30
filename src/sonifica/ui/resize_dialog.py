@@ -26,7 +26,7 @@ from sonifica.hilbert import coherence, describe_coherence, listening_track
 from sonifica.i18n import fixed, tr
 from sonifica.ui import icons, theme
 
-ORIGINAL_COLOR = "#3987e5"  
+ORIGINAL_COLOR = "#3987e5"
 RESIZED_COLOR = "#d95926"
 FACTORS = (2, 4, 8, 10)
 

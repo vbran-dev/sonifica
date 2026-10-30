@@ -54,7 +54,7 @@ from sonifica.ui.resize_dialog import ResizeDialog
 from sonifica.ui.roundtrip_dialog import RoundTripDialog
 
 MAX_ROWS_PLAYBACK_S = 180  # max 3 minutes
-DISPLAY_PATH_MAX_ORDER = 6  
+DISPLAY_PATH_MAX_ORDER = 6
 NOISE_LEVELS = (None, 30.0, 20.0, 10.0, 5.0, 0.0)
 DEFAULTS = {
     "palette": palettes.DEFAULT, "reverse": False, "route": "hilbert", "total": 8.0, "note": 0.12,

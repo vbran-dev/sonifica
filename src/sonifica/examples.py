@@ -32,14 +32,14 @@ def temperature() -> Grid:
 
 
 def traffic() -> Grid:
-    """Hourly vehicle counts, 7 days × 24 hours, with peak traffic during weekday rush hours."""    
+    """Hourly vehicle counts, 7 days × 24 hours, with peak traffic during weekday rush hours."""
     rng = np.random.default_rng(7)
     h = np.arange(24)[None, :]
     peak = lambda center, width: np.exp(-((h - center) ** 2) / (2 * width**2))  # noqa: E731
     workday = 120 + 900 * peak(8, 1.3) + 750 * peak(18, 1.8) + 350 * peak(13, 3)
     weekend = 90 + 520 * peak(12, 3.5) + 260 * peak(20, 2)
     base = np.vstack([np.repeat(workday, 5, axis=0), np.repeat(weekend, 2, axis=0)])
-    base[4] *= 1.08  
+    base[4] *= 1.08
     values = np.round(base * rng.normal(1.0, 0.05, base.shape))
     return Grid(values, tr("weekdays").split(), [f"{v:02d}" for v in range(24)], name=_name("traffic"))
 

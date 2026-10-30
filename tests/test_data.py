@@ -46,4 +46,4 @@ def test_normalization():
 def test_default_example():
     g = example_grid()
     assert g.shape == (12, 10)
-    assert g.argmax()[0] in (5, 6, 7) 
+    assert g.argmax()[0] in (5, 6, 7)
