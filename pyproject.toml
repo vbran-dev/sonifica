@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sonifica"
+dynamic = ["version"]
+description = "Esplora heatmap e tabelle di dati con l'udito: sonificazione accessibile per persone non vedenti e ipovedenti."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Valentina Brancati", email = "valentina@vbrane.it" }]
+keywords = ["sonification", "accessibility", "heatmap", "audio", "data-visualization"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Multimedia :: Sound/Audio :: Analysis",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Environment :: X11 Applications :: Qt",
+]
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "matplotlib>=3.7",
+    "Pillow>=10",
+    "PySide6>=6.5",
+    "sounddevice>=0.4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.4"]
+
+[project.scripts]
+sonifica = "sonifica.app:main"
+
+[project.urls]
+Homepage = "https://github.com/vbran-dev/sonifica"
+Issues = "https://github.com/vbran-dev/sonifica/issues"
+
+[tool.hatch.version]
+path = "src/sonifica/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sonifica"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "I", "UP"]
+ignore = ["E731"]
